@@ -1,0 +1,4 @@
+#Global gitignore for Starforge
+.vs
+StarForge/bin/
+StarForge/obj/
