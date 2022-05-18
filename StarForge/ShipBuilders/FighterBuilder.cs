@@ -10,12 +10,12 @@ namespace StarForge.ShipBuilders
 {
     public class FighterBuilder : ShipBuilder
     {
-        public FighterBuilder(bool symmetrical) : base(symmetrical)
+        public FighterBuilder() 
         {
             this.shipType = typeof(Fighter);
         }
 
-        public override List<Segment> createSegments()
+        public override List<Segment> createSegments(bool symmetrical)
         {
             List<Segment> segments = new List<Segment>();
             

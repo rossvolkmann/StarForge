@@ -2,3 +2,5 @@
 .vs
 StarForge/bin/
 StarForge/obj/
+StarForge/Properties/PublishProfiles/
+StarForge/StarForge.csproj.user

@@ -11,7 +11,7 @@ namespace StarForge.ShipBuilders
     class CruiserBuilder : ShipBuilder
     {
 
-        public CruiserBuilder(bool symmetrical) : base(symmetrical)
+        public CruiserBuilder() 
         {
             this.shipType = typeof(Cruiser);
         }
@@ -29,7 +29,7 @@ namespace StarForge.ShipBuilders
             segments[4].SetColor(nacelleColor);
         }
 
-        public override List<Segment> createSegments()
+        public override List<Segment> createSegments(bool symmetrical)
         {
             List<Segment> segments = new List<Segment>();
             Nacelle portNacelle = new Nacelle();
@@ -39,7 +39,7 @@ namespace StarForge.ShipBuilders
             InnerHullSegment starboardInnerHull;
             Nacelle starboardNacelle;
 
-            if (this.symmetrical)
+            if (symmetrical)
             {
                 starboardInnerHull = portInnerHull; //refactor this later to ensure new object created
                 starboardNacelle = portNacelle;

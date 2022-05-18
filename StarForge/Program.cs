@@ -44,9 +44,9 @@ namespace StarForge
             //Create shipbuilders and add to tracking lists
             List<ShipBuilder> activeBuilders = new List<ShipBuilder>();
             List<ShipBuilder> allBuilders = new List<ShipBuilder>();
-            ShipBuilder cruiserBuilder = new CruiserBuilder(symmetrical);
-            ShipBuilder fighterBuilder = new FighterBuilder(symmetrical);
-            ShipBuilder dreadBuilder = new DreadnoughtBuilder(symmetrical);
+            ShipBuilder cruiserBuilder = new CruiserBuilder();
+            ShipBuilder fighterBuilder = new FighterBuilder();
+            ShipBuilder dreadBuilder = new DreadnoughtBuilder();
             activeBuilders.Add(cruiserBuilder);
             activeBuilders.Add(fighterBuilder);
             activeBuilders.Add(dreadBuilder);
@@ -83,7 +83,7 @@ namespace StarForge
                         int next = r.Next(activeBuilders.Count);
                         currentShipBuilder = activeBuilders[next];
                         Type shipType = currentShipBuilder.ShipType;
-                        nextDesign = currentShipBuilder.buildShip(currentColorSelector).Design;
+                        nextDesign = currentShipBuilder.buildShip(currentColorSelector, symmetrical).Design;
                         break;
                     case ('q'):
                         displayExitScreen();
@@ -91,10 +91,6 @@ namespace StarForge
                         break;
                     case ('s'):
                         symmetrical = !symmetrical;
-                        foreach(ShipBuilder sb in allBuilders)
-                        {
-                            sb.Symmetrical = symmetrical;
-                        }
                         break;
                     case ('f'): //refactor - replace these with ternary operators later
                         fighter = !fighter;

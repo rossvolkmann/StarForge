@@ -10,12 +10,12 @@ namespace StarForge.ShipBuilders
 {
     class DreadnoughtBuilder : ShipBuilder
     {
-        public DreadnoughtBuilder(bool symmetrical) : base(symmetrical)
+        public DreadnoughtBuilder()
         {
             this.shipType = typeof(Dreadnought);
         }
 
-        public override List<Segment> createSegments()
+        public override List<Segment> createSegments(bool symmetrical)
         {
             List<Segment> segments = new List<Segment>();
 
@@ -30,7 +30,7 @@ namespace StarForge.ShipBuilders
             InnerHullSegment starboardInnerHull2;
             Nacelle starboardNacelle;
 
-            if (this.symmetrical)
+            if (symmetrical)
             {
                 starboardCore = portCore;
                 starboardInnerHull = portInnerHull;
